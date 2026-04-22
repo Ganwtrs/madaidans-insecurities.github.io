@@ -21,8 +21,8 @@
   <h2 id="desktop-hardware"><a href="#desktop-hardware">Desktop Hardware</a></h2>
 
   <p>
-    On desktop, use a recent Windows Secured-Core PC, MacBook or Chromebook. These all have numerous security advantages, including
-    proper verified boot, a strict IOMMU, etc. <br>
+    On desktop, use a recent MacBook or Chromebook. MacBooks and Chromebooks have numerous security advantages, including
+    proper verified boot, a strict IOMMU, etc. You can also use Qubes OS with a Windows Secured-Core PC.<br>
     <br>
     Mobile phone hardware is covered in the <a href="#mobile-os">mobile operating system section</a>.
   </p>
@@ -41,14 +41,7 @@
     macOS, ChromeOS or <a href="https://www.qubes-os.org/">QubesOS</a>. Generally, these operating systems have made substantial
     progress on adopting modern exploit mitigations, verified boot, sandboxing, memory safe languages and so on. <br>
     <br>
-    There are advantages and disadvantages between these options, and it is not possible to give an accurate recommendation as to which of
-    these will suit any particular person. One must develop their own threat model and choose the suitable operating system in accordance.
-    For example, Windows 10 has great exploit mitigations, such as its coarse-grained, forward-edge CFI implementation, <a
-    href="https://docs.microsoft.com/en-us/windows/win32/secbp/control-flow-guard">Control Flow Guard</a>, whereas macOS has <a
-    href="https://support.apple.com/en-us/HT208330">full verified boot</a> to eliminate malware persistence. <br>
-    <br>
-    Some of these operating systems do have some privacy invasive telemetry, but it can usually be disabled in the settings and
-    verified with a network analyser tool like Wireshark if you wish to be certain. <br>
+    Some of these operating systems do have some privacy invasive telemetry, but some of it can usually be disabled in the settings. <br>
     <br>
     The security of QubesOS depends entirely on how you use it. The security within the virtual machines matter a lot — don't
     neglect it. Make sure that you use secure guest operating systems and split everything between as many virtual machines as
@@ -66,11 +59,11 @@
     modern exploit mitigations and more from the start. As such, they are far more locked down than other platforms and significantly
     more resistant to attacks. <br>
     <br>
-    Use either the stock operating system or preferably, <a href="https://grapheneos.org/">GrapheneOS</a> on a Pixel ≥4. Do not
+    Use either the stock operating system or preferably, <a href="https://grapheneos.org/">GrapheneOS</a>. GrapheneOS on Pixels ≥ 8 specifically have hardware memory tagging. Do not
     root your device, do not keep your bootloader unlocked and stay away from alternative operating systems like LineageOS, as
     they substantially worsen the security model. Read the <a href="android.html">Android article</a> for more details. <br>
     <br>
-    Alternatively, use an up-to-date iPhone, which is comparable to GrapheneOS on a Pixel, and do not jailbreak your device. <br>
+    Alternatively, use an iPhone ≥ 17, which is comparable to GrapheneOS on a Pixel, and do not jailbreak your device. <br>
     <br>
     <a href="linux-phones.html">Stay away from Linux phones</a>.
   </p>
@@ -79,39 +72,35 @@
 
   <p>
     For security, use Chromium. Avoid Firefox or browsers based on it, as they are currently <a href="firefox-chromium.html">very
-    lacking in security</a>. Microsoft Edge is a better choice for Windows users, as it can utilise <a
-    href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-application-guard/md-app-guard-overview">
-    Microsoft Defender Application Guard</a> (MDAG) and has an
-    <a href="https://microsoftedge.github.io/edgevr/posts/Introducing-Enhanced-Security-for-Microsoft-Edge/">enhanced security mode</a>
+    lacking in security</a>. Microsoft Edge is a viable choice for Windows users, as it can utilize <a href="https://microsoftedge.github.io/edgevr/posts/Introducing-Enhanced-Security-for-Microsoft-Edge/">enhanced security mode</a>
     in which JIT is disabled and mitigations such as ACG, CIG, CFG and CET are all enabled in the renderer process. <br>
     <br>
     For privacy, use the Tor Browser, and consider using the security slider. Do not assume that "hardening" Firefox or
     other browsers will make it private; <a href="browser-tracking.html">it won't</a>.
     Be aware that this has massively reduced security from other options, as mentioned above. <br>
     <br>
-    For a mixture of security and privacy, use <a href="https://github.com/GrapheneOS/Vanadium">Vanadium</a>,
-    <a href="https://www.bromite.org/">Bromite</a> or <a href="https://brave.com/">Brave</a>, although none of these are
-    as good as the Tor Browser when it comes to privacy.
+    For a mixture of security and privacy, use <a href="https://github.com/GrapheneOS/Vanadium">Vanadium</a> on GrapheneOS
+    and <a href="https://github.com/secureblue/Trivalent">Trivalent</a> on secureblue Linux, although they are not as good as the Tor Browser when it comes to privacy.
   </p>
 
   <h2 id="messenger"><a href="#messenger">Messenger</a></h2>
 
   <p>
-    <a href="messengers.html">Use Signal</a>, preferably with a burner or VoIP number.
+    <a href="messengers.html">Use Signal or SimpleX Chat</a>, preferably with a burner or VoIP number.
   </p>
 
   <h2 id="email"><a href="#email">Email</a></h2>
 
   <p>
     If you can, <a href="https://latacora.singles/2020/02/19/stop-using-encrypted.html">stay away from email</a>, as it is a fundamentally
-    insecure protocol, but if you must use it, use a reputable email provider with a strong focus on security, such as
-    <a href="https://protonmail.com/">ProtonMail</a> or <a href="https://tutanota.com/">Tutanota</a>. <br>
+    insecure protocol. If you must use it, use a reputable email provider with a strong focus on security, such as
+    <a href="https://protonmail.com/">Proton Mail</a> or <a href="https://tuta.com/">Tuta</a>. <br>
     <br>
     Consider staying away from web apps, as <a href="https://protonmail.com/blog/cryptographic-architecture-response/">they can
     provide weaker security</a>. When a user visits a website in a browser, that website can target that specific user with
     malicious JavaScript, whereas with a native app, the code is static. Additionally, apps can offer better protection against MITM
     attacks by pinning TLS certificates and removing the dependency on certificate authorities. This is commonly used in apps like <a
-    href="https://protonmail.com/blog/tls-ssl-certificate/#Extra-security-precautions-taken-by-ProtonMail">ProtonMail</a>, <a
+    href="https://protonmail.com/blog/tls-ssl-certificate/#Extra-security-precautions-taken-by-ProtonMail">Proton Mail</a>, <a
     href="https://www.signal.org/blog/certifiably-fine/">Signal</a> and so on. However, websites in a browser are much less privileged,
     as they do not have direct access to system resources. Thus, using a web app could be more secure under certain threat models.
   </p>
@@ -123,7 +112,7 @@
     Bitwarden</a> is recommended. Generate 20+ character passwords containing a completely random assortment of upper and
     lowercase letters, numbers and symbols. Use a different password on each website, and enable two-factor authentication
     (2FA) for every website. Do not use SMS for 2FA, as it is vulnerable to simjacking and man-in-the-middle attacks.
-    Use an authenticator app like <a href="https://getaegis.app/">Aegis</a>.
+    Use passkeys.
   </p>
 
   <h2 id="social-media"><a href="#social-media">Social Media</a></h2>
@@ -169,11 +158,7 @@
     </li>
 
     <li class="lilist">
-      Install <a href="https://en.wikipedia.org/wiki/NoScript">NoScript</a> to block content such as JavaScript as much
-      as you can. JavaScript inherently presents a massive attack surface, as it is arbitrary code executed directly from
-      a website. NoScript also provides protection against attacks such as <a
-      href="https://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting</a>, <a
-      href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">cross-site request forgery</a> and more.
+      Do not install browser extensions when not needed.
     </li>
 
     <li class="lilist">
@@ -181,11 +166,11 @@
     </li>
 
     <li class="lilist">
-      Disable WiFi and Bluetooth when not in use.
+      Disable Wi-Fi and Bluetooth when not in use.
     </li>
 
     <li class="lilist">
-      Use airplane mode and/or take out your SIM card as much as possible to prevent cell tower triangulation.
+      Use Airplane Mode and/or take out your SIM card as much as possible to prevent cell tower triangulation.
     </li>
 
     <li class="lilist">
